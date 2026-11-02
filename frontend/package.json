@@ -1,0 +1,13 @@
+{
+  "name": "cinema-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/ts/main.ts --bundle --outfile=dist/bundle.js --format=iife --target=es2020 --minify --sourcemap",
+    "watch": "esbuild src/ts/main.ts --bundle --outfile=dist/bundle.js --format=iife --target=es2020 --sourcemap --watch"
+  },
+  "devDependencies": {
+    "esbuild": "^0.20.2",
+    "typescript": "^5.4.5"
+  }
+}

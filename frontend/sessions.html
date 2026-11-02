@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sessions — Atlas Cinema</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Atlas Cinema</a>
+      <button class="burger-btn" id="burger-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="movies.html" data-i18n="nav.movies">Movies</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+        <a href="stats.html" data-i18n="nav.stats">Statistics</a>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <main class="container sessions-page">
+    <button id="back-to-movies" class="btn btn-outline" style="margin-bottom:16px;">← Back to Movies</button>
+    <section id="movie-info"></section>
+    <section id="sessions-list" class="sessions-list"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2026 Atlas Cinema — Coursework</p></div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      cinema.initUI();
+      await cinema.initSessionsPage();
+    });
+  </script>
+</body>
+</html>

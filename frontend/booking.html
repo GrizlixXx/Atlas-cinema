@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Booking — Atlas Cinema</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Atlas Cinema</a>
+      <button class="burger-btn" id="burger-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="movies.html" data-i18n="nav.movies">Movies</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+        <a href="stats.html" data-i18n="nav.stats">Statistics</a>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:32px; padding-bottom:60px;">
+    <section id="booking-hero" class="booking-hero">
+      <div class="booking-hero-grid">
+        <img id="booking-movie-poster" class="movie-hero-poster" src="assets/images/poster.jpg" alt=""
+             onerror="this.src='assets/images/film1.jpg'">
+        <div>
+          <h1 id="booking-movie-title" data-i18n="booking.title">Booking</h1>
+          <p id="booking-movie-meta" style="color:var(--text-secondary);margin-bottom:8px;"></p>
+          <p id="booking-movie-desc" style="color:var(--text-secondary);" data-i18n="booking.select_seats">Select seats for your chosen session.</p>
+          <div id="booking-session-info"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="seat-selection">
+      <h2 data-i18n="booking.seat_map_title">🪑 Seat Map</h2>
+      <div class="screen-indicator" data-i18n="common.screen">SCREEN</div>
+      <div id="seat-map" class="seat-map" role="grid" aria-label="Seat map"></div>
+      <div class="seat-legend">
+        <span><span class="dot dot-free"></span> <span data-i18n="common.free">Available</span></span>
+        <span><span class="dot dot-selected"></span> <span data-i18n="common.selected">Selected</span></span>
+        <span><span class="dot dot-occupied"></span> <span data-i18n="common.occupied">Occupied</span></span>
+        <span><span class="dot dot-mine"></span> <span data-i18n="common.my_seats">My seats</span></span>
+      </div>
+      <div class="booking-summary">
+        <p><span><span data-i18n="common.selected_seats">Selected seats</span>:</span> <span id="selected-seats">none</span></p>
+        <p><span><span data-i18n="common.total">Total</span>:</span> <span><span id="selected-total">0.00</span> USD</span></p>
+        <button id="confirm-booking" class="btn btn-primary" style="width:100%;margin-top:8px;" data-i18n="common.confirm_booking">✅ Confirm Booking</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2026 Atlas Cinema — Coursework</p></div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      cinema.initUI();
+      await cinema.initBookingPage();
+    });
+  </script>
+</body>
+</html>

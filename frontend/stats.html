@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Statistics — Atlas Cinema</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Atlas Cinema</a>
+      <button class="burger-btn" id="burger-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="movies.html" data-i18n="nav.movies">Movies</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+        <a href="stats.html" data-i18n="nav.stats">Statistics</a>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top:32px; padding-bottom:60px;">
+    <section class="stats-hero">
+      <p style="color:var(--text-secondary);" data-i18n="stats.live_insights">Live insights into bookings, movies and attendance.</p>
+      <h1 data-i18n="stats.title">📊 Cinema analytics</h1>
+    </section>
+
+    <section id="summary" class="summary-grid" aria-live="polite"></section>
+
+    <section class="stats-grid">
+      <div class="chart-card">
+        <h3 data-i18n="stats.bookings_count">Number of bookings</h3>
+        <p class="panel-muted" data-i18n="stats.bookings_by_date">Booking activity by date</p>
+        <div class="chart-wrapper"><canvas id="bookings-count-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3 data-i18n="stats.popular_movies">Most popular movies</h3>
+        <p class="panel-muted" data-i18n="stats.tickets_by_movie">Ticket distribution by movie</p>
+        <div class="chart-wrapper"><canvas id="popular-films-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3 data-i18n="stats.hall_occupancy">Hall occupancy</h3>
+        <p class="panel-muted" data-i18n="stats.occupancy_percent">% occupancy by hall</p>
+        <div class="chart-wrapper"><canvas id="hall-utilization-chart"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <h3 data-i18n="stats.total_revenue">Total revenue</h3>
+        <p class="panel-muted" data-i18n="stats.paid_pending">Paid / Pending payment</p>
+        <div class="chart-wrapper"><canvas id="revenue-chart"></canvas></div>
+      </div>
+      <div class="chart-card wide">
+        <h3 data-i18n="stats.users_count">Number of users</h3>
+        <p class="panel-muted" data-i18n="stats.roles_viewers">Roles and unique viewers</p>
+        <div class="chart-wrapper"><canvas id="users-chart"></canvas></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2026 Atlas Cinema — Coursework</p></div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      cinema.initUI();
+      await cinema.initStatsPage();
+    });
+  </script>
+</body>
+</html>

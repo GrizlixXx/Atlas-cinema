@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Browse now showing movies at Atlas Cinema">
+  <title>Movies — Atlas Cinema</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Atlas Cinema</a>
+      <button class="burger-btn" id="burger-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="movies.html" data-i18n="nav.movies">Movies</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+        <a href="stats.html" data-i18n="nav.stats">Statistics</a>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <main class="container" style="padding-top: 32px; padding-bottom: 60px;">
+    <div class="movies-hero" style="display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap; margin-bottom:24px;">
+      <div>
+        <h1 data-i18n="movies.now_showing">Now Showing</h1>
+        <p class="muted" data-i18n="movies.browse_desc" style="color:var(--text-secondary)">Browse movies by genre, rating and showtimes.</p>
+      </div>
+      <div class="movies-filters">
+        <label class="movies-search">
+          <span data-i18n="movies.search">Search</span>
+          <input id="search-movies" type="search" data-i18n-placeholder="movies.search_placeholder"
+                 placeholder="Search by title or description" autocomplete="off">
+        </label>
+        <label>
+          <span data-i18n="movies.category">Genre</span>
+          <select id="filter-category"><option value="all">All</option></select>
+        </label>
+        <label>
+          <span data-i18n="movies.rating">Rating</span>
+          <select id="filter-rating"><option value="all">All</option></select>
+        </label>
+      </div>
+    </div>
+    <section id="movies-list" class="movies-grid"></section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2026 Atlas Cinema — Coursework</p></div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      cinema.initUI();
+      await cinema.renderMoviesList();
+    });
+  </script>
+</body>
+</html>

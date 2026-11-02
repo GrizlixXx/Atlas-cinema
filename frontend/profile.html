@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile — Atlas Cinema</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Atlas Cinema</a>
+      <button class="burger-btn" id="burger-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="movies.html" data-i18n="nav.movies">Movies</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+        <a href="stats.html" data-i18n="nav.stats">Statistics</a>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <main class="container profile-page">
+    <h1 data-i18n="profile.your_profile" style="font-family:'Outfit',sans-serif; margin-bottom:8px;">Your Profile</h1>
+    <div style="margin:10px 0;">
+      <button id="go-admin-btn" class="btn btn-outline hidden" type="button" data-i18n="admin.goto">Admin Panel</button>
+    </div>
+    <section id="profile-info"></section>
+
+    <section class="bookings-section" style="margin-top:32px;">
+      <h2 data-i18n="profile.your_bookings" style="font-family:'Outfit',sans-serif; margin-bottom:16px;">Your Bookings</h2>
+      <div id="bookings-list"></div>
+    </section>
+
+    <section id="admin-section" class="admin-section hidden">
+      <h2 data-i18n="admin.panel">Admin Panel</h2>
+
+      <form id="admin-add-movie">
+        <h3 data-i18n="admin.add_movie">Add Movie</h3>
+        <label><span data-i18n="admin.title_en">Title</span> <input type="text" name="title" id="admin-movie-title" required></label>
+        <label><span data-i18n="admin.title_uk">Title (UA)</span> <input type="text" name="title_uk" id="admin-movie-title-uk"></label>
+        <label><span data-i18n="admin.description">Description</span> <textarea name="description" id="admin-movie-desc" required></textarea></label>
+        <label><span data-i18n="admin.description_uk">Description (UA)</span> <textarea name="description_uk" id="admin-movie-desc-uk"></textarea></label>
+        <label><span data-i18n="admin.duration">Duration (min)</span> <input type="number" name="duration_min" id="admin-movie-duration" required min="1"></label>
+        <label><span data-i18n="admin.genre">Genre</span>
+          <select name="genre" id="admin-movie-genre" required>
+            <option value="Action">Action</option><option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option><option value="Crime">Crime</option>
+            <option value="Fantasy">Fantasy</option><option value="Sci-Fi">Sci-Fi</option>
+            <option value="Thriller">Thriller</option><option value="Animation">Animation</option>
+            <option value="Romance">Romance</option><option value="Adventure">Adventure</option>
+          </select>
+        </label>
+        <label><span data-i18n="admin.age_rating">Age rating</span>
+          <select name="age_rating" id="admin-movie-age-rating" required>
+            <option value="G">G</option><option value="PG">PG</option>
+            <option value="PG-13">PG-13</option><option value="R">R</option><option value="NC-17">NC-17</option>
+          </select>
+        </label>
+        <label><span data-i18n="admin.poster">Poster (JPG)</span> <input type="file" name="poster" id="admin-movie-poster" accept="image/jpeg" required></label>
+        <div class="form-actions"><button type="submit" class="btn btn-primary" data-i18n="admin.submit_movie">Add Movie</button></div>
+      </form>
+
+      <form id="admin-add-session" style="margin-top:32px;">
+        <h3 data-i18n="admin.add_session">Add Session</h3>
+        <label><span data-i18n="admin.movie">Movie</span> <select id="admin-session-movie" required></select></label>
+        <label><span data-i18n="admin.hall">Hall</span> <select id="admin-session-hall" required></select></label>
+        <label><span data-i18n="admin.start_time">Start Time</span> <input type="datetime-local" id="admin-session-start" required></label>
+        <label><span data-i18n="admin.base_price">Base price (USD)</span> <input type="number" id="admin-session-price" required min="0" step="0.01" value="12.50"></label>
+        <div class="form-actions"><button type="submit" class="btn btn-primary" data-i18n="admin.submit_session">Add Session</button></div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2026 Atlas Cinema — Coursework</p></div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', async function() {
+      cinema.initUI();
+      await cinema.initProfilePage();
+    });
+  </script>
+</body>
+</html>

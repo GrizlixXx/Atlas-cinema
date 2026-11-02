@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Atlas Cinema — Book tickets for the latest blockbusters. Modern cinema booking experience.">
+  <title>Atlas Cinema — Home</title>
+  <link rel="stylesheet" href="src/css/styles.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>A</text></svg>">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">Atlas Cinema</a>
+      <button class="burger-btn" id="burger-btn" type="button" aria-label="Menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav id="nav-menu">
+        <a href="movies.html" data-i18n="nav.movies">Movies</a>
+        <a href="profile.html" data-i18n="nav.profile">Profile</a>
+        <a href="stats.html" data-i18n="nav.stats">Statistics</a>
+      </nav>
+      <div class="header-actions">
+        <button id="login-btn" class="btn btn-primary" data-i18n="auth.login_register">Login / Register</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <h1 data-i18n="home.welcome_title">Welcome to Atlas Cinema</h1>
+          <p data-i18n="home.welcome_desc">Book tickets for the latest blockbusters</p>
+          <a class="btn btn-primary" href="movies.html" data-i18n="home.browse_movies">Browse Movies</a>
+        </div>
+        <div class="hero-illustration">
+          <div class="poster-sample">
+            <img src="assets/images/poster.jpg" alt="Featured Movie" class="poster-img"
+                 onerror="this.src='assets/images/film1.jpg'">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features container">
+      <div class="feature">
+        <h3 data-i18n="home.feature_ui_title">Modern Interface</h3>
+        <p data-i18n="home.feature_ui_desc">Responsive layout and clear navigation for quick browsing.</p>
+      </div>
+      <div class="feature">
+        <h3 data-i18n="home.feature_booking_title">Seat Booking</h3>
+        <p data-i18n="home.feature_booking_desc">Fast booking with interactive seat map.</p>
+      </div>
+      <div class="feature">
+        <h3 data-i18n="home.feature_admin_title">Admin Panel</h3>
+        <p data-i18n="home.feature_admin_desc">Add movies with posters and manage sessions.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><p>&copy; 2026 Atlas Cinema — Coursework</p></div>
+  </footer>
+
+  <script src="dist/bundle.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      cinema.initUI();
+    });
+  </script>
+</body>
+</html>
