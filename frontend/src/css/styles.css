@@ -155,9 +155,6 @@ a:hover {
   margin-left: 8px;
   flex: 0 0 auto;
 }
-.mobile-login-btn {
-  display: none;
-}
 .header-inner nav a {
   flex: 1 1 0;
   min-width: 0;
@@ -1595,11 +1592,6 @@ select option {
     border-top: 1px solid var(--border);
     justify-content: flex-start;
   }
-  .mobile-login-btn {
-    display: inline-flex;
-    width: 100%;
-    margin: 16px 0 0;
-  }
   .mobile-user-menu .user-menu__trigger {
     width: 100%;
     justify-content: flex-start;
@@ -1739,9 +1731,6 @@ select option {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-    }
-    #login-btn-hdr {
-      display: none;
     }
     .header-actions {
       gap: 0;

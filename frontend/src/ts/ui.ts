@@ -152,7 +152,6 @@ export function renderHeaderAuth(): void {
     `;
     const nav = document.getElementById('nav-menu');
     nav?.querySelector('.nav-lang-control')?.remove();
-    nav?.querySelector('.mobile-login-btn')?.remove();
     nav?.insertAdjacentHTML('beforeend', langSelect);
 
     if (user) {
@@ -195,8 +194,6 @@ export function renderHeaderAuth(): void {
     } else {
       el.innerHTML = `<button id="login-btn-hdr" class="btn btn-primary" data-i18n="auth.login_register">Login / Register</button>`;
       el.querySelector('#login-btn-hdr')?.addEventListener('click', openAuthModal);
-      nav?.insertAdjacentHTML('beforeend', '<button class="btn btn-primary mobile-login-btn" data-i18n="auth.login_register" type="button">Login / Register</button>');
-      nav?.querySelector('.mobile-login-btn')?.addEventListener('click', openAuthModal);
     }
 
     nav?.querySelectorAll<HTMLImageElement>('.flag').forEach((flag) => {
