@@ -1,0 +1,11 @@
+{
+  "name": "cinema-project",
+  "private": true,
+  "scripts": {
+    "heroku-postbuild": "npm install --prefix backend && npm install --prefix frontend && npm run build --prefix frontend && npm run build --prefix backend",
+    "start": "npm start --prefix backend"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}

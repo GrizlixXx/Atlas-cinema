@@ -3,12 +3,15 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+const databaseUrl = process.env.JAWSDB_URL || process.env.DATABASE_URL;
+const parsedDatabaseUrl = databaseUrl ? new URL(databaseUrl) : undefined;
+
 const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'localhost',
-  port: Number(process.env.DB_PORT) || 3306,
-  user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || '',
-  database: process.env.DB_NAME || 'cinema_db',
+  host: process.env.DB_HOST || parsedDatabaseUrl?.hostname || 'localhost',
+  port: Number(process.env.DB_PORT || parsedDatabaseUrl?.port) || 3306,
+  user: process.env.DB_USER || decodeURIComponent(parsedDatabaseUrl?.username || 'root'),
+  password: process.env.DB_PASSWORD || decodeURIComponent(parsedDatabaseUrl?.password || ''),
+  database: process.env.DB_NAME || parsedDatabaseUrl?.pathname.slice(1) || 'cinema_db',
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
