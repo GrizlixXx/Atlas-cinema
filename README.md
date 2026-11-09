@@ -1,7 +1,7 @@
 
 ## Links
 
-- [Demo Link]([https://github.com/GrizlixXx/Atlant-cinema](https://atlas-cinema-demo-767afa5afef1.herokuapp.com/))
+- [Demo Link]([https://github.com/GrizlixXx/Atlant-cinema](https://atlas-cinema-demo-767afa5afef1.herokuapp.com/)
 
 # Atlas Cinema
 
