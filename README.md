@@ -1,3 +1,8 @@
+
+## Links
+
+- [Demo Link]([https://github.com/GrizlixXx/Atlant-cinema](https://atlas-cinema-demo-767afa5afef1.herokuapp.com/))
+
 # Atlas Cinema
 
 Atlas Cinema is a full-stack cinema booking application for browsing movies, checking showtimes, selecting seats, and managing bookings. The project includes a responsive web interface, user authentication, an admin panel, bilingual content, and cinema statistics.
@@ -91,7 +96,3 @@ For frontend development with automatic rebuilding:
 ```bash
 npm run watch --prefix frontend
 ```
-
-## Links
-
-- [GitHub Repository](https://github.com/GrizlixXx/Atlant-cinema)
